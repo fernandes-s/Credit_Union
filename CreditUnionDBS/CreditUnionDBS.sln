@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditUnionDBS", "CreditUnionDBS\CreditUnionDBS.csproj", "{797BE421-BFA6-4CD8-84C6-BFE683249473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIZ", "BIZ\BIZ.csproj", "{91502454-EEE4-4AEC-878E-8802CE29B9D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{797BE421-BFA6-4CD8-84C6-BFE683249473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{797BE421-BFA6-4CD8-84C6-BFE683249473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{797BE421-BFA6-4CD8-84C6-BFE683249473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{797BE421-BFA6-4CD8-84C6-BFE683249473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4DD9F39-3234-4E4E-B5AC-A77BB026BB98}
+	EndGlobalSection
+EndGlobal
