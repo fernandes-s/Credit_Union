@@ -153,5 +153,15 @@
   <ItemGroup>
     <Resource Include="img\dbsCU.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIZ\BIZ.csproj">
+      <Project>{91502454-eee4-4aec-878e-8802ce29b9d1}</Project>
+      <Name>BIZ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9b190b41-0a58-4c3a-abc5-60b50d9cf67c}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

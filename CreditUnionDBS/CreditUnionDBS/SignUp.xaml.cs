@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BIZ;
+using DAL;
 
 namespace CreditUnionDBS
 {
@@ -19,6 +22,9 @@ namespace CreditUnionDBS
     /// </summary>
     public partial class SignUp : Window
     {
+        HashCode hc = new HashCode();
+        AddToDataBase addToDB = new AddToDataBase();
+        RetrievingFromDataBase rtDB = new RetrievingFromDataBase();
         public SignUp()
         {
             InitializeComponent();
@@ -31,19 +37,21 @@ namespace CreditUnionDBS
         }
         private void Login_click(object sender, RoutedEventArgs e)
         {
-
+            SignIn login = new SignIn();
+            login.Show();
+            this.Hide();
         }
 
-        private void SignUp_click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Exit_click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Exiting the application!");
+            this.Close();
         }
 
-        
+        private void btnSignUp_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

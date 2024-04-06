@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditUnionDBS", "CreditUni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIZ", "BIZ\BIZ.csproj", "{91502454-EEE4-4AEC-878E-8802CE29B9D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9B190B41-0A58-4C3A-ABC5-60B50D9CF67C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91502454-EEE4-4AEC-878E-8802CE29B9D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B190B41-0A58-4C3A-ABC5-60B50D9CF67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B190B41-0A58-4C3A-ABC5-60B50D9CF67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B190B41-0A58-4C3A-ABC5-60B50D9CF67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B190B41-0A58-4C3A-ABC5-60B50D9CF67C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

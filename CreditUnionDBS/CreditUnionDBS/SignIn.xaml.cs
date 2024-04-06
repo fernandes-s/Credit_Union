@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL;
+using BIZ;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,22 +21,13 @@ namespace CreditUnionDBS
     /// </summary>
     public partial class SignIn : Window
     {
+        RetrievingFromDataBase rtDB = new RetrievingFromDataBase();
+
+        HashCode hc = new HashCode();
+
         public SignIn()
         {
             InitializeComponent();
-        }
-
-        private void SignIn_click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Exit_click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void Login_click(object sender, RoutedEventArgs e)
-        {
-
         }
         private void btnBackwards_SignIn_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +35,37 @@ namespace CreditUnionDBS
             back.Show();
             this.Hide();
         }
+        private void btnSignIn_click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = hc.PassHash(txtPassword.Text);
+            //string exists = rtDB.validLogn(username, password);
+
+            //if (exists.Equals("true"))
+            //{
+            //    MessageBox.Show("Sucessfully logged in");
+            //    MyAccount myAcc = new MyAccount();
+            //    myAcc.Show();
+            //    this.Hide();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Wrong username and passowrd. Please try again");
+            //    txtUsername.Clear();
+            //    txtPassword.Clear();
+            //}
+        }
+        private void Exit_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Exiting the application!");
+            this.Close();
+        }
+        private void Login_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You are already on the Login screen!");
+        }
+        
+
         
     }
 }

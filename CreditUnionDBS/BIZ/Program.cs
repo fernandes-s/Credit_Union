@@ -10,6 +10,7 @@ namespace BIZ
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

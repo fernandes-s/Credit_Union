@@ -1,0 +1,7 @@
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\bin\Debug\DAL.exe.config
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\bin\Debug\DAL.exe
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\bin\Debug\DAL.pdb
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\obj\Debug\DAL.exe
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\DAL\obj\Debug\DAL.pdb
