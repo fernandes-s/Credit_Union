@@ -1,5 +1,8 @@
-﻿using System;
+﻿using BIZ;
+using DAL;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -19,6 +23,8 @@ namespace CreditUnionDBS
     /// </summary>
     public partial class NewAccount : Window
     {
+        RetrievingFromDataBase rtDB = new RetrievingFromDataBase();
+
         public NewAccount()
         {
             InitializeComponent();
@@ -26,8 +32,9 @@ namespace CreditUnionDBS
 
         //Menu itens click events
         //Login
-        private void Login_click(object sender, RoutedEventArgs e)
+        private void LogOut_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Logged out sucessfully!");
             SignIn login = new SignIn();
             login.Show();
             this.Hide();
@@ -79,5 +86,130 @@ namespace CreditUnionDBS
             transac.Show();
             this.Hide();
         }
+
+        private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
+        {
+            int accNum = int.Parse(txtAccNum.Text);
+            string firstName = txtFN.Text;
+            string surname = txtSN.Text;
+            string email = txtEmail.Text;
+            string phone = txtPhone.Text;
+            string address1 = txtAdd1.Text;
+            string address2 = txtAdd2.Text;
+            string city = txtCity.Text;
+            string county = cboCounty.SelectedItem.ToString();
+            string accType = "Current";
+            string username = firstName + surname;
+            if (rdoSavings.IsChecked == true)
+            {
+                accType = "Savings";
+            }
+            int sortCode = int.Parse(txtSortCode.Text);
+
+            decimal initialBalance = Balance();
+            if (initialBalance > 0)
+            {
+                decimal overdraft = OverdraftCalculation(initialBalance);
+
+                Account newAcc = new Account(username, firstName, surname, email, phone, address1, address2, city, county, accType, sortCode, initialBalance, overdraft);
+                newAcc.CreateAccount();
+                MyAccount myAcc = new MyAccount();
+                myAcc.txtAccNum.Text = accNum.ToString();
+                MessageBox.Show("Account successfully created!");
+                myAcc.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Your initial balance must be greater than 0.");
+                txtInitialBalance.Focus();
+                txtInitialBalance.Clear();
+                txtOverdraftLimit.Text = "0";
+            }
+        }
+
+
+        //Calculating the Overdraft Limit
+        public decimal OverdraftCalculation(decimal initialBalance)
+        {
+            decimal overdraftLimit = 0;
+            if (initialBalance == 0)
+            {
+                return overdraftLimit;
+            }
+            else overdraftLimit = initialBalance / 10;
+
+            return overdraftLimit;
+        }
+
+        //Calculating and displaying overdraft value according to Balance value
+        private void txtInitialBalance_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            decimal overdraftLimit;
+            if (rdoSavings.IsChecked == true)
+            {
+                overdraftLimit = 0;
+                txtOverdraftLimit.Text = overdraftLimit.ToString();
+            }
+            else if (decimal.TryParse(txtInitialBalance.Text, out overdraftLimit))
+            {
+                txtOverdraftLimit.Text = OverdraftCalculation(overdraftLimit).ToString();
+            }
+            else txtOverdraftLimit.Clear();
+        }
+
+        //Populating Fields for when the form is initialized
+        private void PopulatingFields()
+        {
+            txtSortCode.Text = ConfigurationManager.AppSettings.Get("SortCode");
+            int nextAccount = rtDB.selectMaxID() + 1;
+            cboCounty.ItemsSource = Enum.GetValues(typeof(County));
+            txtAccNum.Text = nextAccount.ToString();
+        }
+
+        //Checking if Balance value is acceptable
+        private decimal Balance()
+        {
+            decimal initialBalance = 0;
+            try
+            {
+                initialBalance = decimal.Parse(txtInitialBalance.Text);
+                return initialBalance;
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Cannot convert string to decimal! Please, enter a numerical value");
+            }
+        }
+
+        //Setting overdraft limit to 0 if is a savings account
+        private void rdoSavings_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rdoSavings.IsChecked == true)
+            {
+                txtOverdraftLimit.Text = "0";
+            }
+        }
+
+        //Setting overdraft if is a Current account
+        private void rdoCurrent_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rdoCurrent.IsChecked == true && txtInitialBalance.Text != "")
+            {
+                decimal overdraftLimit;
+                if (decimal.TryParse(txtInitialBalance.Text, out overdraftLimit))
+                {
+                    txtOverdraftLimit.Text = OverdraftCalculation(overdraftLimit).ToString();
+                }
+                else txtOverdraftLimit.Text = "0";
+            }
+        }
+
+        //Grid Load event
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            PopulatingFields();
+        }
+
     }
 }

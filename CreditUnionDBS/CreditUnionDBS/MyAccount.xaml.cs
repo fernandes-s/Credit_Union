@@ -141,8 +141,8 @@ namespace CreditUnionDBS
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Logged out sucessfully!");
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            SignIn login = new SignIn();
+            login.Show();
             this.Hide();
         }
 

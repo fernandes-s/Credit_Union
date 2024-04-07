@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Menu Margin="0,0,0,101" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="799" Grid.ColumnSpan="4">
             <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="LogOut_Click">
-                <MenuItem Header="Log Out" Background="#7ed957" Click="LogOut_Click" />
+                <MenuItem Header="Log Out" Background="#7ed957" Click="Logout_Click" />
                 <MenuItem Header="Exit" Background="#7ed957" Click="Exit_Click"/>
             </MenuItem>
             <MenuItem x:Name="menuItemAcc" Background="#7ed957" Header="Account" Width="89">
