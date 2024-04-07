@@ -51,7 +51,23 @@ namespace CreditUnionDBS
 
         private void btnSignUp_click(object sender, RoutedEventArgs e)
         {
+            string username = txtUsername.Text;
+            if (rtDB.validUsername(username))
+            {
+                string password = hc.PassHash(txtPassword.Text);
 
+                addToDB.addLoginDetais(username, password);
+
+                MyAccount myAcc = new MyAccount();
+                myAcc.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("This username is not available! Please, select a different one.");
+                txtUsername.Focus();
+                txtUsername.Clear();
+            }
         }
     }
 }

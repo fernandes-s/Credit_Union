@@ -82,3 +82,6 @@ C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\obj\Debug\CreditUnionD
 C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\obj\Debug\CreditUnionDBS.csproj.GenerateResource.cache
 C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\obj\Debug\CreditUnionDBS.csproj.CoreCompileInputs.cache
 C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\obj\Debug\CreditUnionDBS.csproj.CopyComplete
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\bin\Debug\Database.mdf
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\bin\Debug\Database_log.ldf
+C:\Users\dfm_n\Credit_Union\CreditUnionDBS\CreditUnionDBS\obj\Debug\CreditUnionDBS_Content.g.cs

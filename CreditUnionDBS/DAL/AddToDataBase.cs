@@ -13,7 +13,7 @@ namespace DAL
         public void addLoginDetais(string username, string password)
         {
             SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "stdInsertLoginDetails";
+            cmd.CommandText = "uspInsertLoginDetails";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@username", username);
