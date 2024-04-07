@@ -22,7 +22,6 @@ namespace CreditUnionDBS
     public partial class SignIn : Window
     {
         RetrievingFromDataBase rtDB = new RetrievingFromDataBase();
-
         HashCode hc = new HashCode();
 
         public SignIn()
@@ -38,22 +37,22 @@ namespace CreditUnionDBS
         private void btnSignIn_click(object sender, RoutedEventArgs e)
         {
             string username = txtUsername.Text;
-            string password = hc.PassHash(txtPassword.Text);
-            //string exists = rtDB.validLogn(username, password);
+            string password = hc.PassHash(pbPassword.Password);
+            string exists = rtDB.validLogn(username, password);
 
-            //if (exists.Equals("true"))
-            //{
-            //    MessageBox.Show("Sucessfully logged in");
-            //    MyAccount myAcc = new MyAccount();
-            //    myAcc.Show();
-            //    this.Hide();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Wrong username and passowrd. Please try again");
-            //    txtUsername.Clear();
-            //    txtPassword.Clear();
-            //}
+            if (exists.Equals("true"))
+            {
+                MessageBox.Show("Sucessfully logged in");
+                MyAccount myAcc = new MyAccount();
+                myAcc.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong username and passowrd. Please try again");
+                txtUsername.Clear();
+                pbPassword.Clear();
+            }
         }
         private void Exit_click(object sender, RoutedEventArgs e)
         {
@@ -64,8 +63,10 @@ namespace CreditUnionDBS
         {
             MessageBox.Show("You are already on the Login screen!");
         }
-        
 
-        
+        private void menuItemFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

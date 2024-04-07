@@ -49,8 +49,9 @@ namespace CreditUnionDBS
             this.Close();
         }
 
+        private void menuItemFile_Click(object sender, RoutedEventArgs e)
+        {
 
-
-        
+        }
     }
 }

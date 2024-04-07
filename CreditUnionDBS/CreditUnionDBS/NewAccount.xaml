@@ -64,7 +64,7 @@
         <TextBox x:Name="txtoverdraftlim" TextWrapping="Wrap"  Width="208" Height="24" Grid.ColumnSpan="2" Margin="122,58,29,61" Grid.Row="5" Grid.Column="2"/>
         <Button x:Name="btnCreateacc" Grid.Column="2" Content="CREATE AN ACCOUNT" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="29" Margin="57,100,0,0" Grid.Row="5" VerticalAlignment="Top" Width="203" FontSize="16" FontWeight="Bold" Background="#7ed957" Foreground="White"/>
 
-        <Image HorizontalAlignment="Left" Height="607" VerticalAlignment="Top" Width="526" Source="/img/dbsCU.png" Margin="-31,-142,0,0" OpacityMask="#100d28" Grid.ColumnSpan="3" Grid.RowSpan="6"/>
+        <Image HorizontalAlignment="Center" Height="202" VerticalAlignment="Top" Width="388" Source="/img/dbsCU.png" Margin="0,30,0,0" OpacityMask="#100d28" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Row="2"/>
 
 
 

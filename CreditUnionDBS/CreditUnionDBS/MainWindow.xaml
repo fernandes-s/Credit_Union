@@ -7,21 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#100d28">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="42*"/>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="109*"/>
-            <RowDefinition Height="109*"/>
-            <RowDefinition Height="109*"/>
-        </Grid.RowDefinitions>
-        <Menu Margin="1,0,0,42"  Background="#7ed957" Foreground="White" FontSize="20" BorderBrush="#7ed957"></Menu>
+
+        <Menu Margin="0,0,0,390" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="800" Grid.ColumnSpan="4">
+            <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="menuItemFile_Click">
+                <MenuItem Header="Login" Background="#7ed957" Click="Login_click" />
+                <MenuItem Header="Exit" Background="#7ed957" Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+        <!--<Menu Margin="1,0,0,42"  Background="#7ed957" Foreground="White" FontSize="20" BorderBrush="#7ed957"></Menu>
         <MenuItem Header="File" Height="56" VerticalAlignment="Top" Background="#7ed957" Foreground="White" Grid.ColumnSpan="4" Margin="4,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" FontWeight="Bold" FontSize="22" >
             <MenuItem Header="Login" Height="56" VerticalAlignment="Top" Background="#7ed957" Foreground="White" Grid.ColumnSpan="4" Margin="4,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" FontWeight="Bold" FontSize="22" Click="Login_click">
                 <MenuItem x:Name="Exit" Header="Exit" Height="56" VerticalAlignment="Top" Background="#7ed957" Foreground="White" Grid.ColumnSpan="4"  RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" FontWeight="Bold" Click="Exit_Click" FontSize="22">
@@ -34,14 +27,10 @@
                     <TranslateTransform X="0"/>
                 </TransformGroup>
             </MenuItem>
-        </MenuItem>
-        <Label x:Name="lbluser" Grid.Column="2" Content="User:" HorizontalAlignment="Left" Margin="71,8,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="16" Foreground="White" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="lblpassword" Grid.Column="2" Content="Password:&#xD;&#xA;" HorizontalAlignment="Left" Margin="52,62,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="16" Foreground="White" FontWeight="Bold" Grid.RowSpan="3"/>
-        <TextBox x:Name="TxtUser" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="150,7,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtpassword" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="150,64,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Grid.RowSpan="2"/>
-        <Button x:Name="btnlogin" Grid.Column="2" Content="LOGIN" HorizontalAlignment="Left" Height="33" Margin="82,32,0,0" Foreground="White" Grid.Row="4" VerticalAlignment="Top" Width="100" FontWeight="Bold" Background="#7ed957" Click="SignIn_click" FontSize="18" BorderBrush="{x:Null}" RenderTransformOrigin="1.262,321.132"/>
-        <Button x:Name="btnsignup" Grid.Column="3" Content="SIGN UP" HorizontalAlignment="Left" Height="33" Margin="18,34,0,0" Foreground="White" Grid.Row="4" VerticalAlignment="Top" Width="100" FontWeight="Bold" Background="#7ed957" Click="SignUp_click" FontSize="18" BorderBrush="{x:Null}"/>
-        <Image HorizontalAlignment="Center" Height="202" VerticalAlignment="Top" Width="388" Source="/img/dbsCU.png" Margin="0,30,0,0" OpacityMask="#100d28" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Row="2"/>
+        </MenuItem-->
+        <Button x:Name="btnlogin" Content="LOGIN" HorizontalAlignment="Left" Height="80" Margin="462,118,0,0" Foreground="White" VerticalAlignment="Top" Width="180" FontWeight="Bold" Background="#7ed957" Click="SignIn_click" FontSize="18" BorderBrush="{x:Null}" RenderTransformOrigin="1.262,321.132"/>
+        <Button x:Name="btnsignup" Content="SIGN UP" HorizontalAlignment="Left" Height="79" Margin="464,255,0,0" Foreground="White" VerticalAlignment="Top" Width="180" FontWeight="Bold" Background="#7ed957" Click="SignUp_click" FontSize="18" BorderBrush="{x:Null}"/>
+        <Image HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="388" Source="/img/dbsCU.png" Margin="34,138,0,0" OpacityMask="#100d28"/>
 
 
     </Grid>

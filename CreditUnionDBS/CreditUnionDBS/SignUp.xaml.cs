@@ -69,5 +69,10 @@ namespace CreditUnionDBS
                 txtUsername.Clear();
             }
         }
+
+        private void menuItemFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -34,6 +34,68 @@ namespace DAL
             return (rowCount == 0);
         }
 
+        public string validLogn(string name, string password)
+        {
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspCheckPassword";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@user", name);
+            cmd.Parameters.AddWithValue("@pass", password);
+            string exists = cmd.ExecuteScalar().ToString();
+            CloseCon();
+
+            return exists;
+
+        }
+        
+        public int countingAccounts()
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspCountAccount";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            int count = int.Parse(cmd.ExecuteScalar().ToString());
+            CloseCon();
+
+            return count;
+        }
+
+        public DataTable allAccounts()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspAllAccounts";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
+
+
+        public DataTable myTransactions(int accNum)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspMyTransactions";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
 
 
     }
