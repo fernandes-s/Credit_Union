@@ -45,7 +45,7 @@
                 <MenuItem Header="View Transactions" Background="#7ed957" Click="ViewTransactions_Click"/>
             </MenuItem>
         </Menu>
-        <Label x:Name="lblFN"  Grid.Column="2" Content="First Name" Foreground="white" Height="32" Margin="7,66,83,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="lblFN"  Grid.Column="2" Content="First Name" Foreground="white" Height="32" Margin="7,60,50,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="txtFN" TextWrapping="Wrap"  Grid.Column="2" Grid.ColumnSpan="2" Margin="118,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Height="24"/>
         <Label x:Name="lblSN" Grid.Column="2" Content="Surname" Foreground="white" HorizontalAlignment="Left" Height="30" Margin="3,100,0,0" VerticalAlignment="Top" Width="78" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="txtSN" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="119,103,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="211" Grid.Column="2"/>
@@ -69,9 +69,9 @@
         <Label x:Name="lblsortcode" Content="Sort Code" Foreground="White" Grid.Column="2" Margin="4,35,62,115" Grid.Row="4" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="txtSortCode" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="24" Margin="129,37,0,0" Grid.Row="4" TextWrapping="Wrap"  VerticalAlignment="Top" Width="208"/>
         <Label  x:Name="lblinitialbalance" Content="Initial Balance" Foreground="White" Margin="229,67,86,78" Grid.Row="4" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.352,0.565" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtInitialBalance" TextWrapping="Wrap" Width="208" Height="24" Margin="137,71,34,80" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" TextChanged="txtInitialBalance_TextChanged"/>
+        <TextBox x:Name="txtInitialBalance" TextWrapping="Wrap" Width="208" Height="24" Margin="124,73,47,78" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" TextChanged="txtInitialBalance_TextChanged"/>
         <Label x:Name="lbloverdraflim"  Content="Overdraft Limit" Foreground="white" Margin="230,107,94,36" Grid.Row="4" FontSize="14" FontWeight="Bold" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtOverdraftLimit" TextWrapping="Wrap"  Width="208" Height="24" Margin="146,115,25,36" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtOverdraftLimit" TextWrapping="Wrap"  Width="208" Height="24" Margin="125,115,46,36" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
 
 
 

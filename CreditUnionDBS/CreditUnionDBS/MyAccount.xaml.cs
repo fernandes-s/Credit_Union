@@ -166,7 +166,7 @@ namespace CreditUnionDBS
         private void EditAccount_Click(object sender, RoutedEventArgs e)
         {
             MyAccount myAcc = new MyAccount();
-            myAcc.txtAccNum.Text = accoNum.ToString();
+            //myAcc.txtAccNum.Text = accoNum.ToString();
             myAcc.Show();
             myAcc.Close();
         }

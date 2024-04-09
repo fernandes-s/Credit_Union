@@ -99,6 +99,7 @@ namespace CreditUnionDBS
             string city = txtCity.Text;
             string county = cboCounty.SelectedItem.ToString();
             string accType = "Current";
+            int accountNumber = int.Parse(txtAccNum.Text);
             string username = firstName + surname;
             if (rdoSavings.IsChecked == true)
             {
@@ -107,11 +108,11 @@ namespace CreditUnionDBS
             int sortCode = int.Parse(txtSortCode.Text);
 
             decimal initialBalance = Balance();
-            if (initialBalance > 0)
+            if (initialBalance > 0 && rtDB.ValidadeAccountNumber(accountNumber))
             {
                 decimal overdraft = OverdraftCalculation(initialBalance);
 
-                Account newAcc = new Account(username, firstName, surname, email, phone, address1, address2, city, county, accType, sortCode, initialBalance, overdraft);
+                Account newAcc = new Account(username, firstName, surname, email, phone, address1, address2, city, county, accType, accountNumber, sortCode, initialBalance, overdraft);
                 newAcc.CreateAccount();
                 MyAccount myAcc = new MyAccount();
                 myAcc.txtAccNum.Text = accNum.ToString();
@@ -121,10 +122,17 @@ namespace CreditUnionDBS
             }
             else
             {
-                MessageBox.Show("Your initial balance must be greater than 0.");
-                txtInitialBalance.Focus();
-                txtInitialBalance.Clear();
-                txtOverdraftLimit.Text = "0";
+                if(initialBalance <= 0)
+                {
+                    MessageBox.Show("Your initial balance must be greater than 0.");
+                    txtInitialBalance.Focus();
+                    txtInitialBalance.Clear();
+                    txtOverdraftLimit.Text = "0";
+                }
+                else if(!rtDB.ValidadeAccountNumber(accountNumber)) {
+                    MessageBox.Show("The chosen account number is already been used");
+                    txtAccNum.Clear();
+                }
             }
         }
 
@@ -162,9 +170,7 @@ namespace CreditUnionDBS
         private void PopulatingFields()
         {
             txtSortCode.Text = ConfigurationManager.AppSettings.Get("SortCode");
-            int nextAccount = rtDB.selectMaxID() + 1;
             cboCounty.ItemsSource = Enum.GetValues(typeof(County));
-            txtAccNum.Text = nextAccount.ToString();
         }
 
         //Checking if Balance value is acceptable

@@ -97,32 +97,33 @@ namespace DAL
             return dt;
         }
 
-        public int selectMaxID()
+        //public int selectMaxID()
+        //{
+        //    SqlCommand cmd = OpenCon().CreateCommand();
+        //    cmd.CommandText = "uspSelectMaxID";
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    // Stopped here
+        //    // Stopped here
+        //    // Stopped here
+        //    // Stopped here
+        //    int accNum = int.Parse(cmd.ExecuteScalar().ToString());
+        //    CloseCon();
+
+        //    return accNum;
+        //}
+
+
+        public bool ValidadeAccountNumber(int accountNumber)
         {
             SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspSelectMaxID";
-            cmd.CommandType = CommandType.StoredProcedure;
-            // Stopped here
-            // Stopped here
-            // Stopped here
-            // Stopped here
-            int accNum = int.Parse(cmd.ExecuteScalar().ToString());
-            CloseCon();
-
-            return accNum;
-        }
-
-
-        public int selectMaxTransferID()
-        {
-            SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspSelectMaxTransfer";
+            cmd.CommandText = "uspValidadeAccountNumber";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@accountNumber", accountNumber);
             int transferId = int.Parse(cmd.ExecuteScalar().ToString());
             CloseCon();
 
-            return transferId;
+            return transferId == 0 ? true : false;
         }
 
     }

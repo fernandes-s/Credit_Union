@@ -21,11 +21,12 @@ namespace BIZ
         public string city;
         public string county;
         public string accType;
+        public int accountNumber;
         public int sortCode;
         public decimal initialBalance;
         public decimal overdraftLimit;
 
-        public Account(string user, string fn, string sn, string email, string phone, string add1, string add2, string city, string county, string accType, int sortCode, decimal initBalance, decimal overdraft)
+        public Account(string user, string fn, string sn, string email, string phone, string add1, string add2, string city, string county, string accType, int accountNumber, int sortCode, decimal initBalance, decimal overdraft)
         {
             username = user;
             firstname = fn;
@@ -38,6 +39,7 @@ namespace BIZ
             this.county = county;
             this.sortCode = sortCode;
             this.accType = accType;
+            this.accountNumber = accountNumber;
             initialBalance = initBalance;
             overdraftLimit = overdraft;
         }
@@ -46,7 +48,7 @@ namespace BIZ
         {
 
             addToDB.CreateAccount(username, firstname, surname, email, phone,
-                address1, address2, city, county, accType, sortCode, initialBalance,
+                address1, address2, city, county, accType, accountNumber, sortCode, initialBalance,
                 overdraftLimit);
         }
     }

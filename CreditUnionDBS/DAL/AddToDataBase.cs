@@ -47,7 +47,7 @@ namespace DAL
 
         // Create Acc
         public void CreateAccount(string user, string fn, string sn, string email,
-            string phone, string add1, string add2, string city, string cy, string accType,
+            string phone, string add1, string add2, string city, string cy, string accType, int accountNumber,
             int sortCode, decimal bal, decimal overdraft)
         {
             SqlCommand cmd = OpenCon().CreateCommand();
@@ -64,6 +64,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@city", city);
             cmd.Parameters.AddWithValue("@county", cy);
             cmd.Parameters.AddWithValue("@accType", accType);
+            cmd.Parameters.AddWithValue("@accountNumber", accountNumber);
             cmd.Parameters.AddWithValue("@sortCode", sortCode);
             cmd.Parameters.AddWithValue("@bal", bal);
             cmd.Parameters.AddWithValue("@overdraft", overdraft);
