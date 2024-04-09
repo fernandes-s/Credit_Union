@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL;
 
 namespace CreditUnionDBS
 {
@@ -19,6 +22,11 @@ namespace CreditUnionDBS
     /// </summary>
     public partial class Withdraw : Window
     {
+        private int accoNum = 0;
+        SqlDataReader dr;
+        DAO dao = new DAO();
+        private decimal overdraft = 0;
+        AddToDataBase addToDB = new AddToDataBase();
         public Withdraw()
         {
             InitializeComponent();
@@ -80,11 +88,130 @@ namespace CreditUnionDBS
             this.Hide();
         }
 
-        
+        //----------------------------------------------------------------------------------
 
-        private void cboWithSelectionchanged(object sender, SelectionChangedEventArgs e)
+        //Grid load event
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            populateComboBox();
+        }
+
+        //Withdraw button
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        {
+            decimal balance = decimal.Parse(txtBalance.Text);
+            decimal withdrawAmt = 0;
+            decimal newBal = 0;
+            string accType = txtAccType.Text;
+
+            try
+            {
+                withdrawAmt = decimal.Parse(txtAmount.Text);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException("Cannot convert string to decimal! You must enter a number.");
+            }
+
+            if (withdrawAmt <= 0)
+            {
+                MessageBox.Show("Your withdraw amount must be greater than 0!");
+            }
+            else if (withdrawAmt > balance + overdraft)
+            {
+                MessageBox.Show("Insufficient funds!");
+            }
+            else
+            {
+                newBal = newBalance(balance, overdraft, withdrawAmt);
+                decimal newOverdraft = calculatingNewOverdraft(newBal);
+                addToDB.UpdateBalanceAndOverdraft(newBal, newOverdraft, accoNum);
+                addToDB.NewWithdraw(accoNum, accType, balance, withdrawAmt, newBal);
+                MessageBox.Show($"Amount Withdrawn: {withdrawAmt}\nNew Balance: {newBal}");
+                txtAmount.Clear();
+                txtBalance.Text = newBal.ToString();
+            }
+
+
 
         }
+
+        //Pre-populating fields
+        public void MyAccountDetails()
+        {
+            accoNum = int.Parse(cboWithdraw.SelectedItem.ToString());
+
+            string accType = "";
+            decimal bal = 0;
+
+            SqlCommand cmd = dao.OpenCon().CreateCommand();
+            cmd.CommandText = "uspMyAccountDetails";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accNum", accoNum);
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                accType = dr["AccountType"].ToString();
+                bal = decimal.Parse(dr["InitialBalance"].ToString());
+                overdraft = decimal.Parse(dr["OverdraftLimit"].ToString());
+            }
+            dao.CloseCon();
+
+            txtBalance.Text = bal.ToString("F2");
+            txtAccType.Text = accType;
+
+
+        }
+
+        public void populateComboBox()
+        {
+            SqlCommand cmd = dao.OpenCon().CreateCommand();
+            cmd.CommandText = "uspSelectAccNum";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                int acc = int.Parse(dr["AccountId"].ToString());
+                //Adding all the accounts to the combobox, except the senders account
+                if (acc != accoNum)
+                {
+                    cboWithdraw.Items.Add(acc);
+                }
+            }
+
+            dao.CloseCon();
+        }
+
+        //Calculating value of new balance
+        public decimal newBalance(decimal bal, decimal overdraft, decimal withdraw)
+        {
+            decimal newBal = 0;
+
+            if (withdraw <= bal)
+            {
+                newBal = bal - withdraw;
+                return newBal;
+            }
+            else newBal = (bal + overdraft) - withdraw;
+
+            return newBal;
+        }
+
+        //Calculating new overdraft value
+        public decimal calculatingNewOverdraft(decimal bal)
+        {
+            decimal newOverdraft = bal / 10;
+            return newOverdraft;
+        }
+        private void cboWithdraw_Selectionchanged(object sender, SelectionChangedEventArgs e)
+        {
+            MyAccountDetails();
+        }
+
+        
     }
 }

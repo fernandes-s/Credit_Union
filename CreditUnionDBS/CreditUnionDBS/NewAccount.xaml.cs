@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -89,6 +90,8 @@ namespace CreditUnionDBS
 
         private void btnCreateAcc_Click(object sender, RoutedEventArgs e)
         {
+            string pattern = @"(?<!\d)\d{8}(?!\d)";
+
             int accNum = int.Parse(txtAccNum.Text);
             string firstName = txtFN.Text;
             string surname = txtSN.Text;
@@ -108,7 +111,7 @@ namespace CreditUnionDBS
             int sortCode = int.Parse(txtSortCode.Text);
 
             decimal initialBalance = Balance();
-            if (initialBalance > 0 && rtDB.ValidadeAccountNumber(accountNumber))
+            if (initialBalance > 0 && rtDB.ValidadeAccountNumber(accountNumber) && Regex.IsMatch(accountNumber.ToString(), pattern))
             {
                 decimal overdraft = OverdraftCalculation(initialBalance);
 
@@ -132,6 +135,10 @@ namespace CreditUnionDBS
                 else if(!rtDB.ValidadeAccountNumber(accountNumber)) {
                     MessageBox.Show("The chosen account number is already been used");
                     txtAccNum.Clear();
+                }
+                else if (!Regex.IsMatch(accountNumber.ToString(), pattern))
+                {
+                    MessageBox.Show("The Account Number must have 8 numbers");
                 }
             }
         }
@@ -217,5 +224,9 @@ namespace CreditUnionDBS
             PopulatingFields();
         }
 
+        private void txtAccNum_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+        }
     }
 }

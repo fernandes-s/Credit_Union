@@ -108,7 +108,22 @@ namespace DAL
         }
 
 
+        public void NewWithdraw(int accNum, string acType, decimal bal, decimal amount,
+            decimal newBal)
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspInsertWithdraw";
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+            cmd.Parameters.AddWithValue("@acType", acType);
+            cmd.Parameters.AddWithValue("@bal", bal);
+            cmd.Parameters.AddWithValue("@amt", amount);
+            cmd.Parameters.AddWithValue("@newBal", newBal);
+
+            cmd.ExecuteNonQuery();
+            CloseCon();
+        }
 
 
     }

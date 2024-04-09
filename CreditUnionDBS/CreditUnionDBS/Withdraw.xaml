@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CreditUnionDBS"
         mc:Ignorable="d"
         Title="Withdraw" Height="450" Width="800" Background="#100d28">
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="216*"/>
             <ColumnDefinition Width="230*"/>
@@ -43,14 +43,14 @@
             </Border>
             <Label x:Name="lblaccnumbW" Content="Acc Number" Canvas.Left="22" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="83" Visibility="Visible"/>
             <Label x:Name="acctypeW" Content="Acc Type" Canvas.Left="26" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Center" Width="78" Visibility="Visible"/>
-            <ComboBox x:Name="cboWithdraw" Width="120" Canvas.Left="119" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="cboWithSelectionchanged" />
+            <ComboBox x:Name="cboWithdraw" Width="120" Canvas.Left="119" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="cboWithdraw_Selectionchanged" />
 
 
         </Canvas>
-        <TextBox x:Name="txtbalanceW" TextWrapping="Wrap"  Grid.Column="2" Margin="67,53,22,32" Grid.Row="2" Grid.ColumnSpan="2" Background="#7ed957" IsReadOnly="True" IsUndoEnabled="False"/>
+        <TextBox x:Name="txtBalance" TextWrapping="Wrap"  Grid.Column="2" Margin="67,53,22,32" Grid.Row="2" Grid.ColumnSpan="2" Background="#7ed957" IsReadOnly="True" IsUndoEnabled="False"/>
         <Label x:Name="lblamountW" Grid.Column="2" Content="Amount:" Foreground="White" HorizontalAlignment="Left" Height="27" Margin="98,100,0,0" Grid.Row="3" VerticalAlignment="Top" Width="62" FontWeight="Bold" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtamountW" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="11,103,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" Grid.RowSpan="2"/>
-        <Button x:Name="btnWithdraw" Grid.Column="2" Content="Withdrow" Background="#7ed957" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="164,43,0,0" Grid.Row="4" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
+        <TextBox x:Name="txtAmount" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="11,103,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="117" Grid.RowSpan="2"/>
+        <Button x:Name="btnWithdraw" Grid.Column="2" Content="Withdrow" Background="#7ed957" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="36" Margin="164,43,0,0" Grid.Row="4" VerticalAlignment="Top" Width="102" FontWeight="Bold" Click="btnWithdraw_Click"/>
 
 
 
