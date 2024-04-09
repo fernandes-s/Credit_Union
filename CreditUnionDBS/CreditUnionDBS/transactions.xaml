@@ -22,18 +22,18 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Margin="0,0,0,53" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="807" Grid.ColumnSpan="4">
-            <MenuItem Background="#7ed957" Header="File">
-                <MenuItem Background="#7ed957" Header="Logout" Click="LogOut_Click"/>
-                <MenuItem Background="#7ed957" Header="Exit" Click="Exit_Click"/>
+        <Menu Margin="-4,0,0,71" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="808" Grid.ColumnSpan="5">
+            <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center">
+                <MenuItem Header="Log Out" Background="#7ed957" Click="LogOut_Click"/>
+                <MenuItem Header="Exit" Background="#7ed957" Click="Exit_click"/>
             </MenuItem>
-            <MenuItem Header="Account" Background="#7ed957" VerticalAlignment="Top" Height="44">
-                <MenuItem Header="New Account" Background="#7ed957" FontFamily="Corbel" Click="NewAccount_Click"/>
-                <MenuItem x:Name="EditAccount" Header="Edit Account" Background="#7ed957" FontFamily="Corbel" Click="EditAccount_Click"/>
-                <MenuItem Header="Deposit Funds" Background="#7ed957" FontFamily="Corbel" Click="DepositFunds_Click"/>
-                <MenuItem Header="Withdraw Funds" Background="#7ed957" FontFamily="Corbel" Click="WithdrawFunds_Click"/>
-                <MenuItem Header="Transfer Funds" Background="#7ed957" FontFamily="Corbel" Click="TransferFunds_Click"/>
-                <MenuItem Header="View Transactions" Background="#7ed957" FontFamily="Corbel" Click="ViewTransactions_Click" IsEnabled="False"/>
+            <MenuItem x:Name="menuItemAcc" Background="#7ed957" Header="Account" Width="89">
+                <MenuItem Header="New Account" Background="#7ed957" Click="NewAccount_Click"/>
+                <MenuItem Header="Edit Account" Background="#7ed957" Click="EditAccount_Click"/>
+                <MenuItem Header="Deposit Funds" Background="#7ed957"  Click="Deposit_Click"/>
+                <MenuItem Header="Withdraw Funds" Background="#7ed957" Click="WithdrawFunds_Click"/>
+                <MenuItem Header="Transfer Funds" Background="#7ed957" Click="TransferFunds_Click"/>
+                <MenuItem Header="View Transactions" Background="#7ed957" IsEnabled="False"/>
             </MenuItem>
         </Menu>
         <Image HorizontalAlignment="Left" Height="199" VerticalAlignment="Top" Width="303" Source="/img/dbsCU.png" Margin="1,80,0,0" OpacityMask="#100d28" Grid.ColumnSpan="2" Grid.RowSpan="4"/>

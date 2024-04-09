@@ -97,20 +97,7 @@ namespace DAL
             return dt;
         }
 
-        //public int selectMaxID()
-        //{
-        //    SqlCommand cmd = OpenCon().CreateCommand();
-        //    cmd.CommandText = "uspSelectMaxID";
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    // Stopped here
-        //    // Stopped here
-        //    // Stopped here
-        //    // Stopped here
-        //    int accNum = int.Parse(cmd.ExecuteScalar().ToString());
-        //    CloseCon();
 
-        //    return accNum;
-        //}
 
 
         public bool ValidadeAccountNumber(int accountNumber)
@@ -124,6 +111,17 @@ namespace DAL
             CloseCon();
 
             return transferId == 0 ? true : false;
+        }
+
+        public SqlDataReader CollectAccNumber(int accountId)
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspCollectAccNum";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@id", accountId);
+
+            return cmd.ExecuteReader();
         }
 
     }

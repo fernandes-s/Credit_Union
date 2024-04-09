@@ -75,6 +75,38 @@ namespace DAL
         }
 
 
+        public void UpdateBalanceAndOverdraft(decimal newBal, decimal overdraft, int accNum)
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspUpdateBalanceAndOverdraft";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@newBal", newBal);
+            cmd.Parameters.AddWithValue("@newOverdraft", overdraft);
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+
+            cmd.ExecuteNonQuery();
+
+            CloseCon();
+        }
+
+        public void NewDeposit(int accNum, string accType, decimal pBal,
+            decimal amt, decimal newBal)
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspInsertDeposit";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accNum", accNum);
+            cmd.Parameters.AddWithValue("@accType", accType);
+            cmd.Parameters.AddWithValue("@pBalance", pBal);
+            cmd.Parameters.AddWithValue("@amt", amt);
+            cmd.Parameters.AddWithValue("@newBal", newBal);
+
+            cmd.ExecuteNonQuery();
+            CloseCon();
+        }
+
 
 
 

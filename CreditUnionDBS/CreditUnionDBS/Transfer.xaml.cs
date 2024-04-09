@@ -24,49 +24,62 @@ namespace CreditUnionDBS
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //Menu itens click events
+        //Login
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Logged out sucessfully!");
+            SignIn login = new SignIn();
+            login.Show();
+            this.Hide();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        //Exit
+        private void Exit_click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Exiting the application!");
+            this.Close();
         }
 
+        //New Account
         private void NewAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            NewAccount nac = new NewAccount();
+            nac.Show();
+            this.Hide();
         }
 
+        //Edit
         private void EditAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            MyAccount myAcc = new MyAccount();
+            myAcc.Show();
+            this.Hide();
         }
 
-        private void DepositFunds_Click(object sender, RoutedEventArgs e)
+        //Deposit
+        private void Deposit_Click(object sender, RoutedEventArgs e)
         {
-
+            Deposit d = new Deposit();
+            d.Show();
+            this.Hide();
         }
 
-        private void TransferFunds_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ViewTransactions_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        //Withdraw
         private void WithdrawFunds_Click(object sender, RoutedEventArgs e)
         {
+            Withdraw w = new Withdraw();
+            w.Show();
+            this.Hide();
+        }
 
+
+        //Transactions
+        private void ViewTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            transactions transac = new transactions();
+            transac.Show();
+            this.Hide();
         }
     }
 }

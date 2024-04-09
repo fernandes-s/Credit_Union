@@ -21,17 +21,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Margin="1,0,0,71" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="803" Grid.ColumnSpan="5">
+        <Menu Margin="-4,0,0,71" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="808" Grid.ColumnSpan="5">
             <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center">
-                <MenuItem Header="Log Out" Background="#7ed957" Click="LogOut_Click" />
-                <MenuItem Header="Exit" Background="#7ed957" Click="Exit_Click"/>
+                <MenuItem Header="Log Out" Background="#7ed957" Click="LogOut_Click"/>
+                <MenuItem Header="Exit" Background="#7ed957" Click="Exit_click"/>
             </MenuItem>
-            <MenuItem Background="#7ed957" Header="Account" Width="89" Height="31" Click="MenuItem_Click">
+            <MenuItem x:Name="menuItemAcc" Background="#7ed957" Header="Account" Width="89">
                 <MenuItem Header="New Account" Background="#7ed957" Click="NewAccount_Click"/>
-                <MenuItem Header="Edit Account" Background="#7ed957" Click="EditAccount_Click" IsEnabled="False"/>
-                <MenuItem Header="Deposit Funds" Background="#7ed957" Click="DepositFunds_Click"/>
+                <MenuItem Header="Edit Account" Background="#7ed957" Click="EditAccount_Click"/>
+                <MenuItem Header="Deposit Funds" Background="#7ed957"  Click="Deposit_Click"/>
                 <MenuItem Header="Withdraw Funds" Background="#7ed957" Click="WithdrawFunds_Click"/>
-                <MenuItem Header="Transfer Funds" Background="#7ed957" Click="TransferFunds_Click"/>
+                <MenuItem Header="Transfer Funds" Background="#7ed957" IsEnabled="False"/>
                 <MenuItem Header="View Transactions" Background="#7ed957" Click="ViewTransactions_Click"/>
             </MenuItem>
         </Menu>
