@@ -44,6 +44,7 @@
             <Label x:Name="lblaccnumbW" Content="Acc Number" Canvas.Left="22" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="83" Visibility="Visible"/>
             <Label x:Name="acctypeW" Content="Acc Type" Canvas.Left="26" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Center" Width="78" Visibility="Visible"/>
             <ComboBox x:Name="cboWithdraw" Width="120" Canvas.Left="119" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="cboWithdraw_Selectionchanged" />
+            <TextBox x:Name="txtUsername" HorizontalContentAlignment="Right" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" IsReadOnly="True" Canvas.Left="120" Canvas.Top="49" HorizontalAlignment="Left" Width="119" />
 
 
         </Canvas>

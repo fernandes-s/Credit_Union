@@ -97,6 +97,42 @@ namespace DAL
             return dt;
         }
 
+        public int SelectMaxTransferID()
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspSelectMaxTransfer";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            int transferId = int.Parse(cmd.ExecuteScalar().ToString());
+            CloseCon();
+
+            return transferId;
+        }
+
+
+        ////////other option
+        //////public int SelectMaxTransferID()
+        //////{
+        //////    SqlCommand cmd = OpenCon().CreateCommand();
+        //////    cmd.CommandText = "uspSelectMaxTransfer";
+        //////    cmd.CommandType = CommandType.StoredProcedure;
+
+        //////    object result = cmd.ExecuteScalar();
+        //////    CloseCon();
+
+        //////    if (result != null && int.TryParse(result.ToString(), out int transferId))
+        //////    {
+        //////        return transferId;
+        //////    }
+        //////    else
+        //////    {
+        //////        // Handle the case where result is null or not an integer.
+        //////        // You might want to log this situation or throw a custom exception.
+        //////        // For simplicity, returning 0 or -1 might be an immediate solution,
+        //////        // indicating that there's no valid maximum transfer ID available.
+        //////        return 0; // Or another appropriate default value or action.
+        //////    }
+        //////}
 
 
 

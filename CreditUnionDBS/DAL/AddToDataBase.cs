@@ -77,6 +77,7 @@ namespace DAL
 
         public void UpdateBalanceAndOverdraft(decimal newBal, decimal overdraft, int accNum)
         {
+  
             SqlCommand cmd = OpenCon().CreateCommand();
             cmd.CommandText = "uspUpdateBalanceAndOverdraft";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -123,6 +124,28 @@ namespace DAL
 
             cmd.ExecuteNonQuery();
             CloseCon();
+        }
+
+        public void NewTransfer(int senderAccNum, string accType, decimal bal,
+            int toAccNum, string toAccType, int sortCode, decimal amount, DateTime date)
+        {
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspTransfer";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@senderAccNum", senderAccNum);
+            cmd.Parameters.AddWithValue("@accType", accType);
+            cmd.Parameters.AddWithValue("@bal", bal);
+            cmd.Parameters.AddWithValue("@toAccNum", toAccNum);
+            cmd.Parameters.AddWithValue("@toAccType", toAccType);
+            cmd.Parameters.AddWithValue("@sortCode", sortCode);
+            cmd.Parameters.AddWithValue("@amt", amount);
+            cmd.Parameters.AddWithValue("@date", date);
+
+            cmd.ExecuteNonQuery();
+
+            CloseCon();
+
         }
 
 

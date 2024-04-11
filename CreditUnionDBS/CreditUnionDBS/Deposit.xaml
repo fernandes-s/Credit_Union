@@ -43,8 +43,6 @@
             </Border>
             <Label Content="Acc Number" Canvas.Left="22" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="83" Visibility="Visible"/>
             <TextBox x:Name="txtUsername" HorizontalContentAlignment="Right" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" IsReadOnly="True" Canvas.Left="120" Canvas.Top="49" HorizontalAlignment="Left" Width="119" />
-
-            <!--<Label x:Name="lblUsername" Content="" Canvas.Left="128" Canvas.Top="46" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Visibility="Visible"/>-->
             <Label Content="Acc Type" Canvas.Left="26" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Center" Width="78" Visibility="Visible"/>
             <ComboBox x:Name="cboDeposit" Width="120" Canvas.Left="119" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="cboAccNumber_selectionChanged"/>
         </Canvas>

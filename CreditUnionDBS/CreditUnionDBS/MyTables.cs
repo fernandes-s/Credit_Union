@@ -39,14 +39,20 @@ namespace CreditUnionDBS
         Waterford,
         Westmeath,
         Wexford,
-        Wicklow
+        Wicklow,
     }
+
+
+
     enum Filters
     {
+
         Savings,
-        Current,
+        Current, 
         Deposit,
         Withdraw,
         Transfer,
     }
+
+
 }

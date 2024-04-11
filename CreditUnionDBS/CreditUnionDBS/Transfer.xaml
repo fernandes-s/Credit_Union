@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CreditUnionDBS"
         mc:Ignorable="d"
         Title="transfer" Height="450" Width="800" Background="#100d28">
-    <Grid>
+    <Grid Loaded="Grid_Loaded" Margin="3,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -35,27 +35,47 @@
                 <MenuItem Header="View Transactions" Background="#7ed957" Click="ViewTransactions_Click"/>
             </MenuItem>
         </Menu>
-        <Label x:Name="lblaccnumTF" Content="From &#xA;Account Number" Foreground="White" Margin="45,32,4,30" Grid.Column="2" FontWeight="Bold" Background="#100d28"/>
-        <ComboBox x:Name="cboaccnumTF" Grid.Column="3" HorizontalAlignment="Left" Height="18" Margin="9,48,0,0" VerticalAlignment="Top" Width="121"/>
-        <Label x:Name="lblacctypeTF" Content="Account type" Background="#100d28" Foreground="White" Grid.Column="2" Margin="42,73,32,9" FontWeight="Bold"/>
-        <Label x:Name="lblbalanceTF" Content="Balance" Background="#100d28" Foreground="White" Grid.Column="2" Margin="43,100,27,91" FontWeight="Bold" Grid.RowSpan="3"/>
-        <Image HorizontalAlignment="Left" Height="152" VerticalAlignment="Top" Width="314" Source="/img/dbsCU.png" Margin="-2,52,0,0" OpacityMask="#100d28" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="2"/>
-        <TextBox x:Name="txtbaccnumTF" Grid.Column="3" HorizontalAlignment="Left" Height="22" Margin="10,76,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtbalanceTF" TextWrapping="Wrap" Text="TextBox" Height="22" Width="120" Grid.Column="3" Margin="9,105,31,92" Grid.RowSpan="3"/>
-        <Label x:Name="lblAccnumTT" Grid.Column="2" Content="To &#xA;Account Number" Background="#100d28" Foreground="White" HorizontalAlignment="Left" Height="42" Margin="45,62,0,0" Grid.Row="2" VerticalAlignment="Top" Width="107" FontWeight="Bold"/>
-        <Label x:Name="lblAcctypeTT" Grid.Column="2" Content="Account Type" Foreground="White" Background="#100d28" HorizontalAlignment="Left" Height="35" Margin="43,2,0,0" Grid.Row="3" VerticalAlignment="Top" Width="89" FontWeight="Bold"/>
-        <Label x:Name="lblsortcodeTT"  Grid.Column="2" Content="Sort Code" Foreground="White" Background="#100d28" HorizontalAlignment="Left" Height="24" Margin="42,37,0,0" Grid.Row="3" VerticalAlignment="Top" Width="69" FontWeight="Bold"/>
-        <Label x:Name="lblamountTT" Grid.Column="2" Content="Amount" Foreground="White" HorizontalAlignment="Left" Background="#100d28" Height="27" Margin="42,69,0,0" Grid.Row="3" VerticalAlignment="Top" Width="89" FontWeight="Bold"/>
-        <Label x:Name="lbldatetimeTT" Grid.Column="2" Content="Date Time" Foreground="White" HorizontalAlignment="Left" Background="#100d28" Height="32" Margin="38,104,0,0" Grid.Row="3" VerticalAlignment="Top" Width="71" Grid.RowSpan="2" FontWeight="Bold"/>
-        <Label x:Name="lblreferencenumTT" Grid.Column="2" Content="Reference Number" Foreground="White" HorizontalAlignment="Left" Background="#100d28" Height="33" Margin="39,25,0,0" Grid.Row="4" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>
-        <TextBox x:Name="txtacctypeTT" TextWrapping="Wrap" Height="22" Margin="11,5,25,82" Grid.Column="3" Grid.Row="3"/>
-        <TextBox x:Name="txtsortcodeTT" TextWrapping="Wrap" Height="22" Grid.Column="3" Margin="10,37,26,50" Grid.Row="3" RenderTransformOrigin="0.496,0.455"/>
-        <TextBox x:Name="txtamountTT" TextWrapping="Wrap" Height="22" Margin="10,71,27,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="3"/>
-        <TextBox x:Name="txtdatetimeTT" TextWrapping="Wrap" Height="22"  Grid.Column="3" Margin="11,103,25,92" Grid.RowSpan="2" Grid.Row="3"/>
-        <TextBox TextWrapping="Wrap" Margin="14,30,26,0" Grid.Column="3" Grid.Row="4" Height="22" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboaccnumTT" Grid.Column="3" Width="120" Height="22" Margin="9,77,27,9" Grid.Row="2"/>
-        <Button Grid.Column="2" Content="Transfer Funds" Background="#7ed957" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="110,66,0,0" Grid.Row="4" VerticalAlignment="Top" Width="133" FontWeight="Bold" RenderTransformOrigin="0.571,0.554"/>
+        <Label x:Name="lblFROM" Content="FROM" Foreground="White" Margin="33,49,141,14" FontWeight="Bold" Background="#100d28" Grid.Row="2" Grid.ColumnSpan="2"/>
 
+        <Label x:Name="lblaccnumTF" Content="Account Number" Foreground="White" Margin="33,93,16,79" FontWeight="Bold" Background="#100d28" Grid.RowSpan="2" Grid.Row="2"/>
+        <ComboBox x:Name="cboAccFrom" HorizontalAlignment="Left" Height="18" Margin="0,98,0,0" VerticalAlignment="Top" Width="121" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" SelectionChanged="cboAccFrom_SelectionChanged"/>
+        <Label x:Name="lblacctypeTF" Content="Account Type" Background="#100d28" Foreground="White" Margin="34,50,40,34" FontWeight="Bold" Grid.Row="3"/>
+        <TextBox x:Name="txtAccType" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="0,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="3"/>
+        <Label x:Name="lblUsername" Content="Username" Background="#100d28" Foreground="White" Margin="39,18,46,65" FontWeight="Bold" Grid.Row="3"/>
+        <TextBox x:Name="txtUsername" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="3"/>
+        <Label x:Name="lblbalanceTF" Content="Balance" Background="#100d28" Foreground="White" Margin="39,79,31,4" FontWeight="Bold" Grid.Row="3"/>
+        <TextBox x:Name="txtBal" TextWrapping="Wrap" Height="22" Width="120" Grid.Column="1" Margin="0,85,40,2" Grid.Row="3"/>
 
+        <Label x:Name="lblLine" Content="" HorizontalAlignment="Left" Margin="94,54,0,0" VerticalAlignment="Top" Width="268" Background="#7ed957" Height="6" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+        <Label x:Name="lblTO" Content="TO" Foreground="White" Margin="2,41,12,22" FontWeight="Bold" Background="#100d28" Grid.Row="2" Grid.Column="3"/>
+        <Label x:Name="lblAccnumTT" Grid.Column="3" Content="Account Number" Background="#100d28" Foreground="White" HorizontalAlignment="Left" Height="42" Margin="6,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="107" FontWeight="Bold" Grid.RowSpan="2"/>
+        <Label x:Name="lblAcctypeTT" Grid.Column="3" Content="Account Type" Foreground="White" Background="#100d28" HorizontalAlignment="Left" Height="35" Margin="24,40,0,0" Grid.Row="3" VerticalAlignment="Top" Width="89" FontWeight="Bold"/>
+        <Label x:Name="lblsortcodeTT"  Grid.Column="3" Content="Sort Code" Foreground="White" Background="#100d28" HorizontalAlignment="Left" Height="24" Margin="23,74,0,0" Grid.Row="3" VerticalAlignment="Top" Width="69" FontWeight="Bold"/>
+        <Label x:Name="lblamountTT" Grid.Column="3" Content="Amount to &#xA; Transfer:" Foreground="White" HorizontalAlignment="Left" Background="#100d28" Height="43" Margin="25,43,0,0" Grid.Row="4" VerticalAlignment="Top" Width="78" FontWeight="Bold" RenderTransformOrigin="0.856,0.314"/>
+        <Label x:Name="lbldatetimeTT" Grid.Column="3" Content="Date Time" Foreground="White" HorizontalAlignment="Left" Background="#100d28" Height="32" Margin="23,1,0,0" Grid.Row="4" VerticalAlignment="Top" Width="71" FontWeight="Bold"/>
+        <!--<Label x:Name="lblreferencenumTT" Grid.Column="3" Content="Reference Number" Foreground="White" HorizontalAlignment="Left" Background="#100d28" Height="33" Margin="14,30,0,0" Grid.Row="4" VerticalAlignment="Top" Width="121" FontWeight="Bold"/>-->
+        <Label x:Name="lblUsernameReciever" Content="Username" Background="#100d28" Foreground="White" Margin="30,3,56,73" FontWeight="Bold" Grid.Row="3" Grid.Column="3"/>
+        <TextBox x:Name="txtUsernameReciever" Grid.Column="3" HorizontalAlignment="Left" Height="22" Margin="147,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtReceiverAccType" TextWrapping="Wrap" Height="22" Margin="149,41,47,46" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtSortCode" TextWrapping="Wrap" Height="22" Grid.Column="3" Margin="151,75,45,12" Grid.Row="3" RenderTransformOrigin="0.496,0.455" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtAmount" TextWrapping="Wrap" Height="22" Margin="138,51,59,0" VerticalAlignment="Top" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtDate" TextWrapping="Wrap" Height="22"  Grid.Column="3" Margin="150,2,46,84" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <!--<TextBox x:Name="txtRefNumber" TextWrapping="Wrap" Margin="145,35,51,0" Grid.Column="3" Grid.Row="4" Height="22" VerticalAlignment="Top" Grid.ColumnSpan="2"/>-->
+        <ComboBox x:Name="cboAccTo" Grid.Column="3" Width="120" Height="22" Margin="146,82,54,4" Grid.Row="2" Grid.ColumnSpan="2" SelectionChanged="cboAccTo_SelectionChanged"/>
+        <Button x:Name="btnTransfer" Content="Transfer Funds" Background="#7ed957" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28" Margin="106,44,0,0" Grid.Row="4" VerticalAlignment="Top" Width="133" FontWeight="Bold" RenderTransformOrigin="0.571,0.554" Click="btnTransfer_Click"/>
+
+        <Image HorizontalAlignment="Left" Height="152" VerticalAlignment="Top" Width="314" Source="/img/dbsCU.png" Margin="44,38,0,0" OpacityMask="#100d28" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Column="1"/>
+        <Label x:Name="lblbalanceTF_Copy" Content="Balance" Background="#100d28" Foreground="White" Margin="40,12,30,71" FontWeight="Bold" Grid.Row="2" Grid.Column="3"/>
+        <TextBox x:Name="txtBalReceiver" TextWrapping="Wrap" Height="22" Width="120" Grid.Column="4" Margin="1,18,38,68" Grid.Row="2"/>
     </Grid>
 </Window>

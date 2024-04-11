@@ -114,8 +114,8 @@ namespace CreditUnionDBS
                 string accType = txtAccType.Text;
                 decimal newBal = newBalance(balance, depositAmt);
                 overdraft = newOverdraft(newBal);
-                addToDb.UpdateBalanceAndOverdraft(newBal, overdraft, accoNum);
-                addToDb.NewDeposit(accoNum, accType, balance, depositAmt, newBal);
+                addToDb.UpdateBalanceAndOverdraft(newBal, overdraft, int.Parse(cboDeposit.SelectedValue.ToString()));
+                addToDb.NewDeposit(int.Parse(cboDeposit.SelectedValue.ToString()), accType, balance, depositAmt, newBal);
                 MessageBox.Show($"Successfully deposited {depositAmt} in your account!\nNew Balance: {newBal}");
                 txtAmount.Clear();
                 txtBalance.Text = newBal.ToString();
@@ -146,8 +146,6 @@ namespace CreditUnionDBS
             {
                 int acc = int.Parse(dr["AccountId"].ToString());
                 int accountNumber = int.Parse(dr["AccountNumber"].ToString());
-                //accountNumbers.Add(accountNumber);
-                //Adding all the accounts to the combobox, except the senders account
                 if (acc != accoNum)
                 {
                     cboDeposit.Items.Add(accountNumber);
