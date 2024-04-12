@@ -110,32 +110,6 @@ namespace DAL
         }
 
 
-        ////////other option
-        //////public int SelectMaxTransferID()
-        //////{
-        //////    SqlCommand cmd = OpenCon().CreateCommand();
-        //////    cmd.CommandText = "uspSelectMaxTransfer";
-        //////    cmd.CommandType = CommandType.StoredProcedure;
-
-        //////    object result = cmd.ExecuteScalar();
-        //////    CloseCon();
-
-        //////    if (result != null && int.TryParse(result.ToString(), out int transferId))
-        //////    {
-        //////        return transferId;
-        //////    }
-        //////    else
-        //////    {
-        //////        // Handle the case where result is null or not an integer.
-        //////        // You might want to log this situation or throw a custom exception.
-        //////        // For simplicity, returning 0 or -1 might be an immediate solution,
-        //////        // indicating that there's no valid maximum transfer ID available.
-        //////        return 0; // Or another appropriate default value or action.
-        //////    }
-        //////}
-
-
-
         public bool ValidadeAccountNumber(int accountNumber)
         {
             SqlCommand cmd = OpenCon().CreateCommand();
@@ -158,6 +132,111 @@ namespace DAL
             cmd.Parameters.AddWithValue("@id", accountId);
 
             return cmd.ExecuteReader();
+        }
+
+        public DataTable allTransactions()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspAllTransactions";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
+
+        public DataTable FilterByAccType(string accType)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspFilterByAccType";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@accType", accType);
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
+
+        public DataTable GetWithdrawals(string transType)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspGetWithdrawals";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
+
+        public DataTable GetDeposits(string transType)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspGetDeposits";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
+
+        public DataTable GetTransfers(string transType)
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspGetTransfer";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
+        }
+
+        //stopped here
+        //stopped here
+        //stopped here
+        //stopped here
+        //stopped here
+        //stopped here
+        //stopped here
+        public DataTable GetAllTransactions()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter();
+
+            SqlCommand cmd = OpenCon().CreateCommand();
+            cmd.CommandText = "uspGetAllTransactions";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            CloseCon();
+
+            return dt;
         }
 
     }

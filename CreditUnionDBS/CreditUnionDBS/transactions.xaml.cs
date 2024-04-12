@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL;
 
 namespace CreditUnionDBS
 {
@@ -19,6 +20,11 @@ namespace CreditUnionDBS
     /// </summary>
     public partial class transactions : Window
     {
+
+        private int accoNum = 0;
+        RetrievingFromDataBase rtDB = new RetrievingFromDataBase();
+        CollectionViewSource cs = new CollectionViewSource();
+
         public transactions()
         {
             InitializeComponent();
@@ -26,7 +32,7 @@ namespace CreditUnionDBS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            cs.Source = rtDB.GetAllTransactions().DefaultView;
         }
 
 
@@ -86,5 +92,56 @@ namespace CreditUnionDBS
             trans.Show();
             this.Hide();
         }
+
+        //--------------------------------------------------------
+        //Grid Load event
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            //populatingWindow();
+            cs.Source = rtDB.allTransactions().DefaultView;
+            dgvTransactions.ItemsSource = cs.View;
+            cboFilter.ItemsSource = Enum.GetValues(typeof(Filters));
+        }
+
+        //Populating fields when grid is loaded
+        private void populatingWindow()
+        {
+            cs.Source = rtDB.allTransactions().DefaultView;
+            dgvTransactions.ItemsSource = cs.View;
+            cboFilter.ItemsSource = Enum.GetValues(typeof(Filters));
+
+        }
+
+        private void cboFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedItem = cboFilter.SelectedItem.ToString();
+            switch (selectedItem)
+            {
+                case "Current":
+                    selectedItem = "Current";
+                    cs.Source = rtDB.FilterByAccType(selectedItem);
+                    dgvTransactions.ItemsSource = cs.View;
+                    break;
+                case "Savings":
+                    cs.Source = rtDB.FilterByAccType(selectedItem);
+                    dgvTransactions.ItemsSource = cs.View;
+                    break;
+                case "Deposit":
+                    cs.Source = rtDB.GetDeposits(selectedItem);
+                    dgvTransactions.ItemsSource = cs.View;
+                    break;
+                case "Withdraw":
+                    cs.Source = rtDB.GetWithdrawals(selectedItem);
+                    dgvTransactions.ItemsSource = cs.View;
+                    break;
+                case "Transfer":
+                    cs.Source = rtDB.GetTransfers(selectedItem);
+                    dgvTransactions.ItemsSource = cs.View;
+                    break;
+            }
+
+        }
+
+        
     }
 }

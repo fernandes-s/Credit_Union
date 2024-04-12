@@ -126,8 +126,8 @@ namespace CreditUnionDBS
             {
                 newBal = newBalance(balance, overdraft, withdrawAmt);
                 decimal newOverdraft = calculatingNewOverdraft(newBal);
-                addToDB.UpdateBalanceAndOverdraft(newBal, newOverdraft, accoNum);
-                addToDB.NewWithdraw(accoNum, accType, balance, withdrawAmt, newBal);
+                addToDB.UpdateBalanceAndOverdraft(newBal, newOverdraft, int.Parse(cboWithdraw.SelectedValue.ToString()));
+                addToDB.NewWithdraw(int.Parse(cboWithdraw.SelectedValue.ToString()), accType, balance, withdrawAmt, newBal);
                 MessageBox.Show($"Amount Withdrawn: {withdrawAmt}\nNew Balance: {newBal}");
                 txtAmount.Clear();
                 txtBalance.Text = newBal.ToString();
@@ -137,34 +137,6 @@ namespace CreditUnionDBS
 
         }
 
-        ////Pre-populating fields
-        //public void MyAccountDetails()
-        //{
-        //    accoNum = int.Parse(cboWithdraw.SelectedItem.ToString());
-
-        //    string accType = "";
-        //    decimal bal = 0;
-
-        //    SqlCommand cmd = dao.OpenCon().CreateCommand();
-        //    cmd.CommandText = "uspMyAccountDetails";
-        //    cmd.CommandType = CommandType.StoredProcedure;
-
-        //    cmd.Parameters.AddWithValue("@accNum", accoNum);
-        //    dr = cmd.ExecuteReader();
-
-        //    while (dr.Read())
-        //    {
-        //        accType = dr["AccountType"].ToString();
-        //        bal = decimal.Parse(dr["InitialBalance"].ToString());
-        //        overdraft = decimal.Parse(dr["OverdraftLimit"].ToString());
-        //    }
-        //    dao.CloseCon();
-
-        //    txtBalance.Text = bal.ToString("F2");
-        //    txtAccType.Text = accType;
-
-
-        //}
 
         public void PopulateComboBox()
         {
