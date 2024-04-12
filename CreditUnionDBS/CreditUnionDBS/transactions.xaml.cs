@@ -30,10 +30,7 @@ namespace CreditUnionDBS
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            cs.Source = rtDB.GetAllTransactions().DefaultView;
-        }
+        
 
 
         //Menu itens click events

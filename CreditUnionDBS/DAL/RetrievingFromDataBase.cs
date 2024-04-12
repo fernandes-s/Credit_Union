@@ -223,21 +223,7 @@ namespace DAL
         //stopped here
         //stopped here
         //stopped here
-        public DataTable GetAllTransactions()
-        {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter();
-
-            SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspGetAllTransactions";
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            da.SelectCommand = cmd;
-            da.Fill(dt);
-            CloseCon();
-
-            return dt;
-        }
+       
 
     }
 }

@@ -130,7 +130,7 @@ namespace DAL
             int toAccNum, string toAccType, int sortCode, decimal amount, DateTime date)
         {
             SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspTransfer";
+            cmd.CommandText = "uspInsertTransfer";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@senderAccNum", senderAccNum);
@@ -147,6 +147,8 @@ namespace DAL
             CloseCon();
 
         }
+
+
 
 
     }
