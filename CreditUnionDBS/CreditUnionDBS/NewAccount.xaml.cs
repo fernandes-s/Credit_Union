@@ -232,7 +232,7 @@ namespace CreditUnionDBS
 
 
         // Serialisation
-        string filePath = @"C:\Users\dfm_n\Credit_Union\CreditUnionDBS\Friend.xml";
+        string filePath = @"C:\Users\dfm_n\Credit_Union\CreditUnionDBS\Account.xml";
         AccInfo a = new AccInfo();
 
         XmlSerializer xser;

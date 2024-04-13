@@ -187,10 +187,6 @@ namespace CreditUnionDBS
             DisplayingInfoReciever(int.Parse(cboAccTo.SelectedItem.ToString()));
         }
 
-
-
-
-
         //Transfering funds
         private void btnTransfer_Click(object sender, RoutedEventArgs e)
         {
@@ -230,7 +226,7 @@ namespace CreditUnionDBS
             else
             {
                 //Adding Transfer to Tranfer Table
-                addToDB.NewTransfer(accoNum, senderAccType, bal, receiverAccNum, receiverAccType, sortCode, amount,  date);
+                addToDB.NewTransfer(senderAccNum, senderAccType, bal, receiverAccNum, receiverAccType, sortCode, amount,  date);
                 //Confirming and Tidying up
                 MessageBox.Show($"{amount} has been transferred to {receiverAccNum}.");
 
@@ -260,7 +256,8 @@ namespace CreditUnionDBS
                 txtBal.Text = newBal.ToString();
                 txtBalReceiver.Text = bal.ToString(); 
                 txtReceiverAccType.Clear();
-                txtSortCode.Clear();
+                //Probably no need to clean the sort code as the transfers are internal
+                //txtSortCode.Clear();
                 txtAmount.Clear();
                 txtDate.Text = DateTime.Now.ToString();
                 cboAccTo.SelectedIndex = 0;
