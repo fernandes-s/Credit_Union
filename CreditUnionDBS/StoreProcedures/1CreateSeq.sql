@@ -1,3 +1,0 @@
-﻿CREATE SEQUENCE Seq_RefNumber
-    START WITH 1
-    INCREMENT BY 1;
