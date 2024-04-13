@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using System.Security.Policy;
 using DAL;
 using BIZ;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Security.AccessControl;
 
 
 namespace CreditUnionDBS
@@ -31,10 +34,80 @@ namespace CreditUnionDBS
         RetrievingFromDataBase rtDB = new RetrievingFromDataBase();
         CollectionViewSource cs = new CollectionViewSource();
         private int accoNum = 0;
+
         public MyAccount()
         {
             InitializeComponent();
         }
+
+
+        //Menu itens click event
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Logged out sucessfully!");
+            SignIn login = new SignIn();
+            login.Show();
+            this.Hide();
+        }
+
+        // Exit
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Exiting the application!");
+            this.Close();
+        }
+
+        //Show
+        //NewAccount
+        private void NewAccount_Click(object sender, RoutedEventArgs e)
+        {
+            NewAccount acc = new NewAccount();
+            acc.Show();
+            this.Hide();
+        }
+
+        //Edit
+        private void EditAccount_Click(object sender, RoutedEventArgs e)
+        {
+            MyAccount myAcc = new MyAccount();
+            //myAcc.txtAccNum.Text = accoNum.ToString();
+            myAcc.Show();
+            myAcc.Close();
+        }
+
+        //Deposit
+        private void DepositFunds_Click(object sender, RoutedEventArgs e)
+        {
+            Deposit dep = new Deposit();
+            dep.Show();
+            this.Hide();
+        }
+
+        //Withdraw
+        private void WithdrawFunds_Click(object sender, RoutedEventArgs e)
+        {
+            Withdraw w = new Withdraw();
+            w.Show();
+            this.Hide();
+        }
+
+        // Transfer
+        private void TransferFunds_Click(object sender, RoutedEventArgs e)
+        {
+            transfer trans = new transfer();
+            trans.Show();
+            this.Hide();
+        }
+
+        // Transactions
+        private void ViewTransactions_Click(object sender, RoutedEventArgs e)
+        {
+            transactions transac = new transactions();
+            transac.Show();
+            this.Hide();
+        }
+
+        //---------------------------------------------------------------------------
 
         //Btn Edit Click event
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -137,71 +210,7 @@ namespace CreditUnionDBS
             FillingDataGrid();
         }
 
-        //Menu itens click event
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Logged out sucessfully!");
-            SignIn login = new SignIn();
-            login.Show();
-            this.Hide();
-        }
-
-        // Exit
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Exiting the application!");
-            this.Close();
-        }
-
-        //Show
-        //NewAccount
-        private void NewAccount_Click(object sender, RoutedEventArgs e)
-        {
-            NewAccount acc = new NewAccount();
-            acc.Show();
-            this.Hide();
-        }
-
-        //Edit
-        private void EditAccount_Click(object sender, RoutedEventArgs e)
-        {
-            MyAccount myAcc = new MyAccount();
-            //myAcc.txtAccNum.Text = accoNum.ToString();
-            myAcc.Show();
-            myAcc.Close();
-        }
-
-        //Deposit
-        private void DepositFunds_Click(object sender, RoutedEventArgs e)
-        {
-            Deposit dep = new Deposit();
-            dep.Show();
-            this.Hide();
-        }
-
-        //Withdraw
-        private void WithdrawFunds_Click(object sender, RoutedEventArgs e)
-        {
-            Withdraw w = new Withdraw();
-            w.Show();
-            this.Hide();
-        }
-
-        // Transfer
-        private void TransferFunds_Click(object sender, RoutedEventArgs e)
-        {
-            transfer trans = new transfer();
-            trans.Show();
-            this.Hide();
-        }
-
-        // Transactions
-        private void ViewTransactions_Click(object sender, RoutedEventArgs e)
-        {
-            transactions transac = new transactions();
-            transac.Show();
-            this.Hide();
-        }
+        
 
 
 
@@ -241,14 +250,7 @@ namespace CreditUnionDBS
             FillingDataGrid();
         }
 
-        // Transactions
-        private void btnTransactions_Click(object sender, RoutedEventArgs e)
-        {
-            cs.Source = rtDB.myTransactions(accoNum).DefaultView;
-            dgvAccounts.ItemsSource = cs.View;
-
-            MyAccountDetails(accoNum);
-        }
+        
 
         //Changing row colors according to operation type
         private void dgvAccounts_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -287,13 +289,13 @@ namespace CreditUnionDBS
             MyAccountDetails(accoNum);
         }
 
-        
 
-        private void LogOut_Click(object sender, RoutedEventArgs e)
+
+
+        // Serialise & Deserialise
+        private void btnSerialise_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-       
     }
 }

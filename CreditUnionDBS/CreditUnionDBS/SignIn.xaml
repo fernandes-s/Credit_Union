@@ -8,19 +8,26 @@
         Title="SignIn" Height="450" Width="800" Background="#100d28">
     <Grid Margin="0,-1,-21,-120" HorizontalAlignment="Right" Width="815">
 
-        <Menu Margin="-4,2,0,500" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="800">
-            <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="menuItemFile_Click">
+        <Menu Margin="0,-1,0,500" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="803" RenderTransformOrigin="0.5,0.5">
+            <Menu.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.764"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.52"/>
+                </TransformGroup>
+            </Menu.RenderTransform>
+            <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="menuItemFile_Click" Width="53">
                 <MenuItem Header="Login" Background="#7ed957" Click="Login_click" />
                 <MenuItem Header="Exit" Background="#7ed957" Click="Exit_click"/>
             </MenuItem>
-
         </Menu>
         <Label x:Name="lbluserSU" Content="User" HorizontalAlignment="Left" Margin="460,178,0,0" VerticalAlignment="Top" Foreground="white" FontWeight="Bold" FontSize="16"/>
         <Label x:Name="lblpasswordSU" Content="Password" HorizontalAlignment="Left" Margin="448,239,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="16" RenderTransformOrigin="0.545,0.065"/>
         <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="30" Margin="545,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
         <PasswordBox Name="pbPassword" HorizontalAlignment="Left" Height="30" Margin="545,235,0,0" VerticalAlignment="Top" Width="130" />
         <Button x:Name="btnSI" Content="SIGN IN" HorizontalAlignment="Left" Height="32" Margin="562,298,0,0" Foreground="White" VerticalAlignment="Top" Width="100" FontWeight="Bold" Background="#7ed957" Click="btnSignIn_click" FontSize="18" BorderBrush="{x:Null}"/>
-        <Button x:Name="btnBackwards_SignIn" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="14,88,0,0" VerticalAlignment="Top" Height="35" Width="52" FontFamily="Corbel" FontSize="20" RenderTransformOrigin="-0.413,1.116" Background="#100d28" BorderBrush="#100d28" Foreground="#7ed957" FontWeight="Bold" Click="btnBackwards_SignIn_Click"/>
+        <Button x:Name="btnBackwards_SignIn" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="0,54,0,0" VerticalAlignment="Top" Height="35" Width="52" FontFamily="Corbel" FontSize="20" RenderTransformOrigin="-0.413,1.116" Background="#100d28" BorderBrush="#100d28" Foreground="#7ed957" FontWeight="Bold" Click="btnBackwards_SignIn_Click"/>
 
         <Image HorizontalAlignment="Left" Height="201" VerticalAlignment="Top" Width="388" Source="/img/dbsCU.png" Margin="30,149,0,0" OpacityMask="#100d28"/>
 

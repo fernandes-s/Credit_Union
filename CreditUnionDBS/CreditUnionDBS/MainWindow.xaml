@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800" Background="#100d28">
     <Grid>
 
-        <Menu Margin="0,0,0,390" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="800" Grid.ColumnSpan="4">
+        <Menu Margin="0,-1,0,383" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Center" Width="800">
             <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="menuItemFile_Click">
                 <MenuItem Header="Login" Background="#7ed957" Click="Login_click" />
                 <MenuItem Header="Exit" Background="#7ed957" Click="Exit_Click"/>

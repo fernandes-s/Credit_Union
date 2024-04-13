@@ -11,20 +11,20 @@ namespace BIZ
     {
         AddToDataBase addToDB = new AddToDataBase();
 
-        public string username;
-        public string firstname;
-        public string surname;
-        public string email;
-        public string phone;
-        public string address1;
-        public string address2;
-        public string city;
-        public string county;
-        public string accType;
-        public int accountNumber;
-        public int sortCode;
-        public decimal initialBalance;
-        public decimal overdraftLimit;
+        public string username { get; set; }
+        public string firstname { get; set; }
+        public string surname { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public string address1 { get; set; }
+        public string address2 { get; set; }
+        public string city { get; set; }
+        public string county { get; set; }
+        public string accType { get; set; }
+        public int accountNumber { get; set; }
+        public int sortCode { get; set; }
+        public decimal initialBalance { get; set; }
+        public decimal overdraftLimit { get; set; }
 
         public Account(string user, string fn, string sn, string email, string phone, string add1, string add2, string city, string county, string accType, int accountNumber, int sortCode, decimal initBalance, decimal overdraft)
         {

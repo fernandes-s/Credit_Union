@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccInfo.cs" />
     <Compile Include="Account.cs" />
     <Compile Include="HashCode.cs" />
     <Compile Include="Program.cs" />

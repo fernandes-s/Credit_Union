@@ -91,22 +91,13 @@ namespace CreditUnionDBS
         }
 
         //--------------------------------------------------------
+
+
         //Grid Load event
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            //populatingWindow();
-            cs.Source = rtDB.allTransactions().DefaultView;
             dgvTransactions.ItemsSource = cs.View;
             cboFilter.ItemsSource = Enum.GetValues(typeof(Filters));
-        }
-
-        //Populating fields when grid is loaded
-        private void populatingWindow()
-        {
-            cs.Source = rtDB.allTransactions().DefaultView;
-            dgvTransactions.ItemsSource = cs.View;
-            cboFilter.ItemsSource = Enum.GetValues(typeof(Filters));
-
         }
 
         private void cboFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -138,7 +129,6 @@ namespace CreditUnionDBS
             }
 
         }
-
         
     }
 }

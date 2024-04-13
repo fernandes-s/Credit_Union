@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,6 +18,8 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace CreditUnionDBS
 {
@@ -30,6 +34,7 @@ namespace CreditUnionDBS
         {
             InitializeComponent();
         }
+
 
         //Menu itens click events
         //Login
@@ -224,9 +229,94 @@ namespace CreditUnionDBS
             PopulatingFields();
         }
 
-        private void txtAccNum_TextChanged(object sender, TextChangedEventArgs e)
+
+
+        // Serialisation
+        string filePath = @"C:\Users\dfm_n\Credit_Union\CreditUnionDBS\Friend.xml";
+        AccInfo a = new AccInfo();
+
+        XmlSerializer xser;
+        XmlWriter xw;
+        XmlReader xr;
+
+        private void btnSerialise_Click(object sender, RoutedEventArgs e)
         {
-           
+            a.username = txtFN.Text + txtSN.Text;
+            a.firstname = txtFN.Text;
+            a.surname = txtSN.Text;
+            a.email = txtEmail.Text;
+            a.phone = txtPhone.Text;
+            a.address1 = txtAdd1.Text;
+            a.address2 = txtAdd2.Text;
+            a.city = txtCity.Text;
+            a.accType = "Current";
+            if (rdoSavings.IsChecked == true)
+            {
+                a.accType = "Savings";
+            }
+            a.accountNumber = Convert.ToInt32(txtAccNum.Text);
+            a.sortCode = Convert.ToInt32(txtSortCode.Text);
+            a.initialBalance = Convert.ToDecimal(txtInitialBalance.Text);
+            a.overdraftLimit = Convert.ToDecimal(txtOverdraftLimit.Text);
+
+            xser = new XmlSerializer(typeof(AccInfo));
+            xw = XmlWriter.Create(filePath);
+
+            xser.Serialize(xw, a);
+            xw.Close();
+
+            txtFN.Clear();
+            txtSN.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtAdd1.Clear();
+            txtAdd2.Clear();
+            txtCity.Clear();
+            txtAccNum.Clear();
+            txtSortCode.Clear();
+            txtInitialBalance.Clear();
+            txtOverdraftLimit.Clear();
         }
+
+        private void btnDeserialise_Click(object sender, RoutedEventArgs e)
+        {
+            xser = new XmlSerializer(typeof(AccInfo));
+            xr = XmlReader.Create(filePath);
+
+            
+            a = (AccInfo)xser.Deserialize(xr);
+            xr.Close();
+
+            a.username = txtFN.Text + txtSN.Text;
+            a.firstname = txtFN.Text;
+            a.surname = txtSN.Text;
+            a.email = txtEmail.Text;
+            a.phone = txtPhone.Text;
+            a.address1 = txtAdd1.Text;
+            a.address2 = txtAdd2.Text;
+            a.city = txtCity.Text;
+
+            //a.accType = "Current";
+            //if (rdoSavings.IsChecked == true)
+            //{
+            //    a.accType = "Savings";
+            //}
+            //int accountNumber;
+            //if (int.TryParse(txtAccNum.Text, out accountNumber))
+            //{
+            //    a.accountNumber = accountNumber;
+            //}
+            //else
+            //{
+            //    Handle the error case
+            //    For example, notify the user or log an error
+            //    Console.WriteLine("Invalid input. Please enter a valid integer.");
+            //        a.accountNumber = 0; // Set a default or error value if necessary
+                //}
+            //    a.sortCode = Convert.ToInt32(txtSortCode.Text);
+            //    a.initialBalance = Convert.ToDecimal(txtInitialBalance.Text);
+            //    a.overdraftLimit = Convert.ToDecimal(txtOverdraftLimit.Text);
+        }
+
     }
 }

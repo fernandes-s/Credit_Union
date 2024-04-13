@@ -39,14 +39,14 @@
         <Image HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="388" Source="/img/dbsCU.png" Margin="10,31,0,0" OpacityMask="#100d28" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="2"/>
         <Canvas Margin="15,45,93,62" Background="DarkGray" Visibility="Visible" Height="110" Width="265" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="2">
             <Border x:Name="bdBorderdeposit" BorderBrush="#7ed957" BorderThickness="1" Height="108" Width="265" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Visible" Canvas.Top="3" Canvas.Left="-1">
-                <TextBox x:Name="txtAccType" HorizontalContentAlignment="Right" Height="22" Margin="118,70,23,0" TextWrapping="Wrap"  VerticalAlignment="Top" IsReadOnly="True" />
+                <TextBox x:Name="txtAccType" HorizontalContentAlignment="Right" Height="22" Margin="118,70,14,0" TextWrapping="Wrap"  VerticalAlignment="Top" IsReadOnly="True" />
             </Border>
             <Label Content="Acc Number" Canvas.Left="22" Canvas.Top="22" HorizontalAlignment="Left" VerticalAlignment="Center" Width="83" Visibility="Visible"/>
-            <TextBox x:Name="txtUsername" HorizontalContentAlignment="Right" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" IsReadOnly="True" Canvas.Left="120" Canvas.Top="49" HorizontalAlignment="Left" Width="119" />
-            <Label Content="Acc Type" Canvas.Left="26" Canvas.Top="66" HorizontalAlignment="Left" VerticalAlignment="Center" Width="78" Visibility="Visible"/>
-            <ComboBox x:Name="cboDeposit" Width="120" Canvas.Left="119" Canvas.Top="27" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="cboAccNumber_selectionChanged"/>
+            <TextBox x:Name="txtUsername" HorizontalContentAlignment="Right" Height="22" TextWrapping="Wrap"  VerticalAlignment="Center" IsReadOnly="True" Canvas.Left="118" Canvas.Top="49" HorizontalAlignment="Center" Width="131" />
+            <Label Content="Acc Type" Canvas.Left="27" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Visibility="Visible"/>
+            <ComboBox x:Name="cboDeposit" Width="131" Canvas.Left="118" Canvas.Top="24" HorizontalAlignment="Center" VerticalAlignment="Center" SelectionChanged="cboAccNumber_selectionChanged"/>
         </Canvas>
-        <TextBox x:Name="txtBalance" TextWrapping="Wrap"  Grid.Column="3" Margin="14,58,93,26" Grid.Row="3" Grid.ColumnSpan="2" Background="#7ed957" IsReadOnly="True" IsUndoEnabled="False" />
+        <TextBox x:Name="txtBalance" TextWrapping="Wrap"  Grid.Column="3" Margin="14,58,86,26" Grid.Row="3" Grid.ColumnSpan="2" Background="#7ed957" IsReadOnly="True" IsUndoEnabled="False" />
         <Label x:Name="lblamountD" Grid.Column="3" Content="Amount:" Foreground="White" HorizontalAlignment="Left" Height="27" Margin="36,87,0,0" Grid.Row="3" VerticalAlignment="Top" Width="62" FontWeight="Bold" Grid.RowSpan="2"/>
         <TextBox x:Name="txtAmount" Grid.Column="3" HorizontalAlignment="Left" Height="24" Margin="101,90,0,0" Grid.Row="3" TextWrapping="Wrap"  VerticalAlignment="Top" Width="118" Grid.RowSpan="2" />
         <Button x:Name="btnDeposit" Grid.Column="3" Content="Deposit" Background="#7ed957" Foreground="White" HorizontalAlignment="Left" Height="36" Margin="105,0,0,36" Grid.Row="4" VerticalAlignment="Bottom" Width="102" FontWeight="Bold" Click="btnDeposit_Click"/>

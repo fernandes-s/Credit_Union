@@ -21,8 +21,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Margin="2,-1,0,50" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="798" Grid.ColumnSpan="5">
-            <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="menuItemFile_Click">
+        <Menu Margin="0,-1,0,59" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="798" Grid.ColumnSpan="5">
+            <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="menuItemFile_Click" Width="62">
                 <MenuItem Header="Login" Background="#7ed957" Click="Login_click" />
                 <MenuItem Header="Exit" Background="#7ed957" Click="Exit_click"/>
             </MenuItem>
@@ -32,7 +32,7 @@
         <TextBox x:Name="txtUsername" Grid.Column="3" HorizontalAlignment="Left" Height="30" Margin="150,7,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtPassword" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" Margin="150,64,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
         <Button x:Name="btnSU" Grid.Column="3" Content="CREATE ACCOUNT" HorizontalAlignment="Left" Height="33" Margin="85,12,0,0" Foreground="White" Grid.Row="3" VerticalAlignment="Top" Width="200" FontWeight="Bold" Background="#7ed957" Click="btnSignUp_click" FontSize="18" BorderBrush="{x:Null}" Grid.ColumnSpan="2"/>
-        <Button x:Name="btnBackwards_SignIn" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="18,90,0,0" VerticalAlignment="Top" Height="35" Width="52" FontFamily="Corbel" FontSize="20" RenderTransformOrigin="-0.413,1.116" Background="#100d28" BorderBrush="#100d28" Foreground="#7ed957" FontWeight="Bold" Click="btnBackwards_SignIn_Click" Grid.Column="1" Grid.RowSpan="3"/>
+        <Button x:Name="btnBackwards_SignIn" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="1,50,0,0" VerticalAlignment="Top" Height="35" Width="52" FontFamily="Corbel" FontSize="20" RenderTransformOrigin="-0.413,1.116" Background="#100d28" BorderBrush="#100d28" Foreground="#7ed957" FontWeight="Bold" Click="btnBackwards_SignIn_Click" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="388" Source="/img/dbsCU.png" Margin="25,30,0,0" OpacityMask="#100d28" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Row="2" Grid.Column="1"/>
 
 

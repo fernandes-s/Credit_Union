@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Menu Margin="0,0,0,101" Background="#7ed957" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="799" Grid.ColumnSpan="4">
             <MenuItem x:Name="menuItemFile" Header="File" Background="#7ed957" Height="51" VerticalAlignment="Center" Click="LogOut_Click">
-                <MenuItem Header="Log Out" Background="#7ed957" Click="Logout_Click" />
+                <MenuItem Header="Log Out" Background="#7ed957" Click="LogOut_Click" />
                 <MenuItem Header="Exit" Background="#7ed957" Click="Exit_Click"/>
             </MenuItem>
             <MenuItem x:Name="menuItemAcc" Background="#7ed957" Header="Account" Width="89">
@@ -58,8 +58,7 @@
         <TextBox x:Name="txtSortCode" TextWrapping="Wrap"  Height="28" Margin="18,48,12,65" Grid.Column="3" Grid.Row="2" />
         <TextBox x:Name="txtBal" TextWrapping="Wrap"  Height="28" Margin="18,91,12,22" Grid.Column="3" Grid.Row="2" />
         <TextBox x:Name="txtOverdraft" TextWrapping="Wrap"  Height="28" Margin="18,132,14,122" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" />
-        <Button x:Name="btnShowAccounts" Content="Show Accounts" Background="#7ed957" Foreground="White" HorizontalAlignment="Left" Height="31" Margin="20,22,0,0" Grid.Row="3" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold" Click="btnShowAccounts_Click"/>
-        <Button x:Name="btnTransactions" Content="Transactions" Background="#7ed957" Foreground="White" HorizontalAlignment="Left" Height="31" Margin="172,22,0,0" Grid.Row="3" VerticalAlignment="Top" Width="136" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2" Click="btnTransactions_Click"/>
+        <Button x:Name="btnShowAccounts" Content="Show Accounts" Background="#7ed957" Foreground="White" HorizontalAlignment="Left" Height="31" Margin="39,39,0,0" Grid.Row="3" VerticalAlignment="Top" Width="136" FontSize="16" FontWeight="Bold" Click="btnShowAccounts_Click"/>
         <DataGrid x:Name="dgvAccounts" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="147" Margin="38,77,0,0" Grid.RowSpan="2" Grid.Row="3" VerticalAlignment="Top" Width="724" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dgvAccounts_SelectionChanged"/>
         <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="170,87,0,0" VerticalAlignment="Top" Width="120" Height="49" FontFamily="Corbel" FontSize="16" Background="#7ed957" Foreground="White"  Click="btnEdit_Click" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="22,87,0,0" VerticalAlignment="Top" Width="109" Height="49" FontFamily="Corbel" FontSize="16" Background="#7ed957" Foreground="White"  IsEnabled="False" Click="btnUpdate_Click" Grid.Column="2" Grid.Row="4"/>

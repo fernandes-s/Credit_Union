@@ -78,36 +78,7 @@ namespace DAL
             return dt;
         }
 
-
-        public DataTable myTransactions(int accNum)
-        {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter();
-
-            SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspMyTransactions";
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("@accNum", accNum);
-
-            da.SelectCommand = cmd;
-            da.Fill(dt);
-            CloseCon();
-
-            return dt;
-        }
-
-        public int SelectMaxTransferID()
-        {
-            SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspSelectMaxTransfer";
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            int transferId = int.Parse(cmd.ExecuteScalar().ToString());
-            CloseCon();
-
-            return transferId;
-        }
+        
 
 
         public bool ValidadeAccountNumber(int accountNumber)
@@ -132,22 +103,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@id", accountId);
 
             return cmd.ExecuteReader();
-        }
-
-        public DataTable allTransactions()
-        {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter();
-
-            SqlCommand cmd = OpenCon().CreateCommand();
-            cmd.CommandText = "uspAllTransactions";
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            da.SelectCommand = cmd;
-            da.Fill(dt);
-            CloseCon();
-
-            return dt;
         }
 
         public DataTable FilterByAccType(string accType)
@@ -215,15 +170,5 @@ namespace DAL
 
             return dt;
         }
-
-        //stopped here
-        //stopped here
-        //stopped here
-        //stopped here
-        //stopped here
-        //stopped here
-        //stopped here
-       
-
     }
 }

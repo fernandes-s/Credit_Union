@@ -24,7 +24,7 @@ namespace CreditUnionDBS
     public partial class transfer : Window
     {
         private int accoNum = 0;
-        private decimal overdraft = 0;
+         decimal overdraft = 0;
         private decimal receiverBalance = 0;
         SqlDataReader dr;
         DAO dao = new DAO();
